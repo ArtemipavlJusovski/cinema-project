@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import React from "react";
 import Link from "next/link";
 
 const movies = [
@@ -74,16 +75,18 @@ export default async function MoviePage({
                 </h3>
 
                 <div className="flex flex-wrap gap-3 mt-2">
-                  {session.times.map((time) => (
-                    <Link
-                      key={time}
-                      href={`/sessions/${movie.id}-${session.date}-${time}`}
-                    >
-                      <button className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition">
+                  {session.times.map((time) => {
+                    const sessionId = `${movie.id}-${session.date}-${time}`;
+                    return (
+                      <Link
+                        key={time}
+                        href={`/movies/${movie.id}/sessions/${sessionId}`}
+                        className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+                      >
                         {time}
-                      </button>
-                    </Link>
-                  ))}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             ))}

@@ -1,22 +1,23 @@
 import React from "react";
 import MovieCard from "@/components/MovieCard";
+import Link from "next/link";
 
 const movies = [
   {
     id: "1",
-    title: "Isnterstellar",
+    title: "Интерстеллар",
     description: "Фантастический фильм о путешествиях в космосе.",
     posterUrl: "/posters/interstellar.jpg",
   },
   {
     id: "2",
-    title: "Inception",
+    title: "Начало",
     description: "Фильм о сновидениях и манипуляции сознанием.",
     posterUrl: "/posters/inception.jpg",
   },
   {
     id: "3",
-    title: "Joker",
+    title: "Джокер",
     description: "История становления легендарного злодея.",
     posterUrl: "/posters/joker.jpg",
   },
@@ -30,13 +31,14 @@ export default function MoviesPage() {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {movies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            id={movie.id} // передаём id
-            title={movie.title}
-            description={movie.description}
-            posterUrl={movie.posterUrl}
-          />
+          <Link key={movie.id} href={`/movies/${movie.id}`}>
+            <MovieCard
+              id={movie.id}
+              title={movie.title}
+              description={movie.description}
+              posterUrl={movie.posterUrl}
+            />
+          </Link>
         ))}
       </div>
     </div>

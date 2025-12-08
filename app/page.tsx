@@ -1,34 +1,29 @@
+import React from "react";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      {/* Фоновое изображение */}
-      <img
-        src="/posters/main-bg.jpg"
-        alt="Cinema background"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+    <div className="relative min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col justify-center items-center text-center p-8">
+      <div className="absolute inset-0">
+        <img
+          src="/posters/cinema-background.jpg"
+          alt="Cinema Background"
+          className="w-full h-full object-cover opacity-50"
+        />
+      </div>
 
-      {/* Тёмное затемнение */}
-      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-
-      {/* Контент */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-        <h1 className="text-5xl md:text-7xl font-extrabold drop-shadow-lg">
-          Добро пожаловать в CinemaX
+      <div className="relative z-10">
+        <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          Добро пожаловать в наш кинотеатр!
         </h1>
-
-        <p className="mt-6 text-xl md:text-2xl max-w-2xl opacity-90">
-          Лучшие фильмы, удобное расписание, быстрый выбор мест. Начните
-          путешествие в мир кино прямо сейчас!
+        <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+          Выбирайте фильмы, сеансы и бронируйте места онлайн
         </p>
-
         <Link
           href="/movies"
-          className="mt-10 px-8 py-4 bg-red-600 hover:bg-red-700 transition text-xl rounded-xl shadow-xl"
+          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-xl"
         >
-          Перейти к фильмам
+          Смотреть фильмы
         </Link>
       </div>
     </div>
