@@ -7,7 +7,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-
     const { email, movie, date, time, seats, total } = body;
 
     if (!email) {
@@ -17,10 +16,10 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: "Cinema <tickets@yourdomain.com>",
       to: email,
-      subject: "Ваш билет 🎬",
+      subject: "Your Ticked 🎬",
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px;">
-          <h2>Ваш электронный билет</h2>
+          <h2>Your e-Ticket</h2>
 
           <p><b>Фильм:</b> ${movie}</p>
           <p><b>Дата:</b> ${date}</p>
@@ -30,7 +29,7 @@ export async function POST(req: Request) {
 
           <hr style="margin: 20px 0;" />
 
-          <p>Спасибо за покупку! Желаем вам приятного просмотра 🍿</p>
+          <p>Thank you! Have a nice view! 🍿</p>
         </div>
       `,
     });
